@@ -1,0 +1,180 @@
+{
+  "DeviceData": [
+    {
+      "DeviceCode": "FX5U-001",
+      "RunnningStatus": false,
+      "ContainerDetails": [
+        {
+          "Container": "Container 1",
+          "Status": false
+        },
+        {
+          "Container": "Container 2",
+          "Status": false
+        },
+        {
+          "Container": "Container 3",
+          "Status": false
+        }
+      ]
+    },
+    {
+      "DeviceCode": "FX5U-002",
+      "RunnningStatus": true,
+      "ContainerDetails": [
+        {
+          "Container": "Container 1",
+          "Status": true
+        },
+        {
+          "Container": "Container 2",
+          "Status": true
+        }
+      ]
+    },
+    {
+      "DeviceCode": "FX5U-003",
+      "RunnningStatus": true,
+      "ContainerDetails": [
+        {
+          "Container": "Container 1",
+          "Status": true
+        },
+        {
+          "Container": "Container 2",
+          "Status": true
+        }
+      ]
+    },
+    {
+      "DeviceCode": "FX5U-004",
+      "RunnningStatus": true,
+      "ContainerDetails": [
+        {
+          "Container": "Container 1",
+          "Status": true
+        },
+        {
+          "Container": "Container 2",
+          "Status": true
+        }
+      ]
+    },
+    {
+      "DeviceCode": "FX5U-005",
+      "RunnningStatus": true,
+      "ContainerDetails": [
+        {
+          "Container": "Container 1",
+          "Status": true
+        },
+        {
+          "Container": "Container 2",
+          "Status": true
+        }
+      ]
+    },
+    {
+      "DeviceCode": "FX5U-006",
+      "RunnningStatus": true,
+      "ContainerDetails": [
+        {
+          "Container": "Container 1",
+          "Status": true
+        },
+        {
+          "Container": "Container 2",
+          "Status": true
+        }
+      ]
+    },
+    {
+      "DeviceCode": "FX5U-007",
+      "RunnningStatus": true,
+      "ContainerDetails": [
+        {
+          "Container": "Container 1",
+          "Status": true
+        },
+        {
+          "Container": "Container 2",
+          "Status": true
+        }
+      ]
+    },
+    {
+      "DeviceCode": "FX5U-008",
+      "RunnningStatus": true,
+      "ContainerDetails": [
+        {
+          "Container": "Container 1",
+          "Status": true
+        },
+        {
+          "Container": "Container 2",
+          "Status": true
+        },
+        {
+          "Container": "Container 3",
+          "Status": true
+        }
+      ]
+    },
+    {
+      "DeviceCode": "FX5U-009",
+      "RunnningStatus": true,
+      "ContainerDetails": [
+        {
+          "Container": "Container 1",
+          "Status": true
+        },
+        {
+          "Container": "Container 2",
+          "Status": true
+        }
+      ]
+    },
+    {
+      "DeviceCode": "FX5U-010",
+      "RunnningStatus": true,
+      "ContainerDetails": [
+        {
+          "Container": "Container 1",
+          "Status": true
+        },
+        {
+          "Container": "Container 2",
+          "Status": true
+        }
+      ]
+    },
+    {
+      "DeviceCode": "FX5U-011",
+      "RunnningStatus": false,
+      "ContainerDetails": [
+        {
+          "Container": "Container 1",
+          "Status": false
+        },
+        {
+          "Container": "Container 2",
+          "Status": false
+        }
+      ]
+    },
+    {
+      "DeviceCode": "FX5U-012",
+      "RunnningStatus": false,
+      "ContainerDetails": [
+        {
+          "Container": "Container 1",
+          "Status": false
+        },
+        {
+          "Container": "Container 2",
+          "Status": false
+        }
+      ]
+    }
+  ]
+}

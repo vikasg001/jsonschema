@@ -1,0 +1,158 @@
+{
+  "Service1": {
+    "__visible": true,
+    "PlcConfig": {
+      "__visible": true,
+      "DeviceCode": {
+        "__visible": true,
+        "Type": "text",
+        "Readonly": false
+      },
+      "ReadIntervalInMilliseconds": {
+        "Type": "number",
+        "Readonly": false
+      },
+      "PlcSeries": {
+        "Type": "option",
+        "Options": [ "QL" ],
+        "Readonly": false
+      },
+      "Code": {
+        "Type": "option",
+        "Options": [ "Binary", "ASCII" ]
+      },
+      "Frame": {
+        "Type": "option",
+        "Options": [ "3E" ]
+      },
+      "MonitoringTimer": {
+        "Type": "number"
+      },
+      "PLCIPAddress": {
+        "Type": "text"
+      },
+      "PLCPort": {
+        "Type": "text"
+      },
+      "LocalPort": {
+        "Type": "text"
+      },
+      "Protocol": {
+        "Type": "text"
+      },
+      "ReadMultipleBlocks": {
+        "Type": "text"
+      },
+      "AccessRoute": {
+        "__visible": true,
+        "PCNumber": {
+          "Type": "text",
+          "__visible": true
+        },
+        "NetworkNumber": {
+          "Type": "text"
+        },
+        "ModuleIONumber": {
+          "Type": "text"
+        },
+        "ModuleStationNumber": {
+          "Type": "text"
+        }
+      },
+      "Parameters": {
+        "__visible": true,
+        "Name": {
+          "Type": "text",
+          "__visible": true,
+          "Readonly": false
+        },
+        "Device": {
+          "Type": "option",
+          "Options": [ "D", "M", "W", "X", "Y" ],
+          "Readonly": false
+        },
+        "Address": {
+          "Type": "text"
+        },
+        "DevicePoints": {
+          "Type": "text"
+        },
+        "ResultDataType": {
+          "__visible": true,
+          "Type": "option",
+          "Options": [ "Int32", "Boolean" ]
+        }
+      }
+    },
+    "RabbitMQConfig": {
+      "__visible": true,
+      "HostName": {
+        "__visible": true,
+        "Type": "text"
+      },
+      "VirtualHost": {
+        "__visible": true,
+        "Type": "text"
+      },
+      "UserName": {
+        "__visible": true,
+        "Type": "text"
+      },
+      "Password": {
+        "__visible": true,
+        "Type": "text"
+      },
+      "Exchange": {
+        "__visible": true,
+        "Type": "text"
+      },
+      "RoutingKey": {
+        "__visible": true,
+        "Type": "text"
+      }
+    }
+  },
+  "Service2": {
+    "__visible": true,
+    "Source": {
+      "__visible": true,
+      "HostName": {
+        "__visible": true,
+        "Type": "text"
+      },
+      "VirtualHost": {
+        "__visible": true,
+        "Type": "text"
+      },
+      "UserName": {
+        "__visible": true,
+        "Type": "text"
+      },
+      "Password": {
+        "__visible": true,
+        "Type": "text"
+      }
+    },
+    "WaitForConfirmsOrDie": {
+      "__visible": true,
+      "Type": "boolean",
+      "Readonly": true
+    },
+    "WaitForConfirmsText": {
+      "Type": "text",
+      "__visible": true,
+      "Readonly": true
+    },
+    "WaitForConfirmsOption": {
+      "Type": "option",
+      "Options": [ "admin", "admin1", "admin2" ],
+      "__visible": true,
+      "Readonly": true
+    },
+    "WaitForConfirmsNumber": {
+      "Type": "number",
+      "__visible": false,
+      "Readonly": true
+    }
+  }
+}

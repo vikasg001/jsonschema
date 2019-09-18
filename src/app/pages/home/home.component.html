@@ -1,0 +1,58 @@
+<div>
+  <div class="mt-2">
+    <mat-accordion [multi]="true">
+      <mat-tab-group [selectedIndex]="selected.value"
+                     (selectedIndexChange)="selected.setValue($event);createForm(tabList[selected.value])">
+        <mat-tab [label]="tabitem" *ngFor="let tabitem of tabList;let tabIndex=index" [ngClass]="{'d-none': homeService.validationData[tabitem].__visible===false}">
+          {{tabitem.__visible}}
+
+        </mat-tab>
+      </mat-tab-group>
+    </mat-accordion>
+
+
+
+    <form (ngSubmit)="onSubmit()" >
+      <div class="example-container p-2" [ngStyle]="{'display':tabIndex===selectedConnector?null:'none'}" *ngFor="let tabitem of tabList;let tabIndex=index">
+
+        <mat-expansion-panel *ngFor="let jsonData of newJsonData;let i =index;" [expanded]="i" [ngClass]="{'d-none': jsonData.validation.__visible===false}">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{jsonData.key}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <app-json-schema-form [id]="jsonData.id"
+                                [type]="jsonData.type"
+                                [key]="jsonData.key"
+                                [data]="jsonData.value"
+                                [form]="form"
+                                [validation]="jsonData.validation"
+                                [parentIndex]="undefined"
+                                [formData]="formData">
+          </app-json-schema-form>
+
+        </mat-expansion-panel>
+      </div>
+    </form>
+
+
+    <div class="example-button-row">
+      <button mat-stroked-button color="primary" (click)="onSubmit()">
+        <mat-icon>send</mat-icon>
+        Submit
+      </button>
+      <button mat-stroked-button color="primary" (click)="openAllPanels()">
+        <mat-icon>crop_free</mat-icon>
+        Expanded
+      </button>
+      <button mat-stroked-button color="primary" (click)="closeAllPanels()">
+        <mat-icon>crop_landscape</mat-icon>
+        Collapse
+      </button>
+      <button mat-stroked-button color="primary" (click)="onRefresh()">
+        <mat-icon>loop</mat-icon>
+        Reset
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<form (ngSubmit)="onSubmit(jsonForm)" [formGroup]="jsonForm">
+  <div class="row" *ngIf="formfieldType.radio.indexOf(type) > -1">
+    <div class="col-md-3 col-sm-12">
+      <mat-radio-group class="example-radio-group" [formControlName]="key">
+        <mat-radio-button value="true" [checked]="data===true">True</mat-radio-button>
+        <mat-radio-button value="false" [checked]="data===false">False</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="formfieldType.input.indexOf(type) > -1">
+    <div class="col-md-3 col-sm-12">
+      <mat-form-field>
+        <input matInput [placeholder]="key" [formControlName]="key">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="type==='object'">
+    <div *ngFor="let field of data" class="col-md-3 col-sm-12">
+      <mat-form-field *ngIf="formfieldType.input.indexOf(field.type) > -1">
+        <input matInput [placeholder]="field.key" [formControlName]="field.key">
+      </mat-form-field>
+
+      <div *ngIf="formfieldType.radio.indexOf(field.type) > -1">
+        <label class="mat-radio-group">{{field.key}}</label>
+        <mat-radio-group class="example-radio-group" [formControlName]="field.key">
+          <mat-radio-button value="true" [checked]="field.value===true">True</mat-radio-button>
+          <mat-radio-button value="false" [checked]="field.value===false">False</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="type==='object'">
+    <ng-container *ngFor="let field of data">
+      <ng-container *ngIf="formfieldType.complex.indexOf(field.type) > -1">
+
+        <mat-card-title>{{field.key}}</mat-card-title>
+        <app-json-schema-form [type]="field.type" [key]="field.key" [data]="field.value"></app-json-schema-form>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+
+  <div *ngIf="type==='array'">
+    <mat-card *ngFor="let card of data" class="mt-2">
+      <app-json-schema-form [type]="checkTypeof(card)" [data]="card"></app-json-schema-form>
+    </mat-card>
+    <div class="example-button-row">
+      <button mat-raised-button color="primary" (click)="addSection(key)">
+        <mat-icon>add</mat-icon> Add
+      </button>
+      <button mat-raised-button color="primary" (click)="removeSection(key)" *ngIf="this.data.length > 1">
+        <mat-icon>remove</mat-icon> Remove
+      </button>
+    </div>
+  </div>
+</form>

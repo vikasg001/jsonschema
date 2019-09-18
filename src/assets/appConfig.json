@@ -1,0 +1,146 @@
+{
+  "Service1": {
+    "PlcConfig": [
+      {
+        "DeviceCode": "FX5U-001",
+        "ReadIntervalInMilliseconds": 2000,
+        "PlcSeries": "QL",
+        "Code": "Binary",
+        "Frame": "3E",
+        "MonitoringTimer": "4000",
+        "PLCIPAddress": "192.168.0.45",
+        "PLCPort": "8888",
+        "LocalPort": "",
+        "Protocol": "TCP",
+        "ReadMultipleBlocks": "False",
+        "AccessRoute": {
+          "PCNumber": "FF",
+          "NetworkNumber": "00",
+          "ModuleIONumber": "03FF",
+          "ModuleStationNumber": "00"
+        },
+        "Parameters": [
+          {
+            "Name": "Switch_Status",
+            "Device": "Y",
+            "Address": "1",
+            "DevicePoints": "1",
+            "ResultDataType": "Int32"
+          },
+          {
+            "Name": "MotorRotationsCount",
+            "Device": "D",
+            "Address": "1",
+            "DevicePoints": "1",
+            "ResultDataType": "Int32"
+          },
+          {
+            "Name": "SomeOtherData",
+            "Device": "W",
+            "Address": "101",
+            "DevicePoints": "1",
+            "ResultDataType": "Boolean"
+          }
+        ]
+      },
+      {
+        "DeviceCode": "FX5U-002",
+        "ReadIntervalInMilliseconds": 1000,
+        "PlcSeries": "QL",
+        "Code": "Binary",
+        "Frame": "3E",
+        "MonitoringTimer": "4000",
+        "PLCIPAddress": "192.168.0.45",
+        "PLCPort": "8194",
+        "LocalPort": "8194",
+        "Protocol": "UDP",
+        "ReadMultipleBlocks": "False",
+        "AccessRoute": {
+          "PCNumber": "FF",
+          "NetworkNumber": "00",
+          "ModuleIONumber": "03FF",
+          "ModuleStationNumber": "00"
+        },
+        "Parameters": [
+          {
+            "Name": "Switch_Status",
+            "Device": "Y",
+            "Address": "1",
+            "DevicePoints": "1",
+            "ResultDataType": "Int32"
+          },
+          {
+            "Name": "MotorRotationsCount",
+            "Device": "D",
+            "Address": "1",
+            "DevicePoints": "1",
+            "ResultDataType": "Int32"
+          }
+        ]
+      }
+    ],
+    "RabbitMQConfig": {
+      "HostName": "10.167.96.47",
+      "VirtualHost": "YMC",
+      "UserName": "ymc-user",
+      "Password": "yamaha",
+      "Exchange": "YMC-Direct",
+      "RoutingKey": "YMC-Direct.YMC-Hamakita"
+    }
+  },
+  "Service2": {
+    "Source": {
+      "HostName": "127.0.0.1",
+      "VirtualHost": "/",
+      "UserName": "admin",
+      "Password": "admin"
+    },
+    "Destination": {
+      "HostName": "10.167.96.47",
+      "VirtualHost": "/",
+      "UserName": "admin",
+      "Password": "admin"
+    },
+    "WaitForConfirmsOrDie": true,
+    "WaitForConfirmsText": "admin",
+    "WaitForConfirmsOption": "admin",
+    "WaitForConfirmsNumber": 786,
+    "QoSSettings": {
+      "PrefetchSize": 0,
+      "PrefetchCount": 1,
+      "Global": false
+    },
+    "Settings": [
+      {
+        "Source": {
+          "QueueName": "Test-1"
+        },
+        "Destination": {
+          "Exchange": "NewExchange",
+          "RoutingKey": "NewExchange.NewQueue-1",
+          "Queues": [
+            {
+              "QueueName": "NewQueue-1",
+              "QueueSettings": {
+                "x-message-ttl": 10000,
+                "x-max-length": 1001,
+                "x-overflow": "drop-head"
+              }
+            },
+            {
+              "QueueName": "NewQueue-2",
+              "QueueSettings": {
+                "x-message-ttl": 10000,
+                "x-max-length": 10,
+                "x-overflow": "drop-head"
+              }
+            }
+          ]
+        },
+        "OptionalData": {
+          "DeviceCode": "Device-Port-7000"
+        }
+      }
+    ]
+  }
+}
