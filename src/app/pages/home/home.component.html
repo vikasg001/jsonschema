@@ -8,32 +8,29 @@
 
         </mat-tab>
       </mat-tab-group>
+      <form (ngSubmit)="onSubmit()" >
+        <div class="example-container p-2" [ngStyle]="{'display':tabIndex===selectedConnector?null:'none'}" *ngFor="let tabitem of tabList;let tabIndex=index">
+
+          <mat-expansion-panel *ngFor="let jsonData of newJsonData;let i =index;" [expanded]="i" [ngClass]="{'d-none': jsonData.validation.__visible===false}">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{jsonData.key}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <app-json-schema-form [id]="jsonData.id"
+                                  [type]="jsonData.type"
+                                  [key]="jsonData.key"
+                                  [data]="jsonData.value"
+                                  [form]="form"
+                                  [validation]="jsonData.validation"
+                                  [parentIndex]="undefined"
+                                  [formData]="formData">
+            </app-json-schema-form>
+
+          </mat-expansion-panel>
+        </div>
+      </form>
     </mat-accordion>
-
-
-
-    <form (ngSubmit)="onSubmit()" >
-      <div class="example-container p-2" [ngStyle]="{'display':tabIndex===selectedConnector?null:'none'}" *ngFor="let tabitem of tabList;let tabIndex=index">
-
-        <mat-expansion-panel *ngFor="let jsonData of newJsonData;let i =index;" [expanded]="i" [ngClass]="{'d-none': jsonData.validation.__visible===false}">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              {{jsonData.key}}
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <app-json-schema-form [id]="jsonData.id"
-                                [type]="jsonData.type"
-                                [key]="jsonData.key"
-                                [data]="jsonData.value"
-                                [form]="form"
-                                [validation]="jsonData.validation"
-                                [parentIndex]="undefined"
-                                [formData]="formData">
-          </app-json-schema-form>
-
-        </mat-expansion-panel>
-      </div>
-    </form>
 
 
     <div class="example-button-row">
