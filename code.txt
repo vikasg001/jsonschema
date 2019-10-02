@@ -1,0 +1,42 @@
+convertObjectToArray(obj, key) {
+    const arr = [];
+    const t = [];
+    let count = 0;
+    const __obj = {};
+    for (const p in obj) {
+      if (typeof obj[p] !== 'object') {
+        t.push(p);
+        __obj[p] = obj[p];
+      }
+    }
+
+   
+    for (const prop in obj) {
+      count++;
+      if (obj.hasOwnProperty(prop)) {
+        const innerObj = {key: '', value: {}, type: '', id: '', validation: {}};
+        if (t.length > 0 && count === 1 && typeof obj[prop] !== 'object') {
+          console.log(t.length, count);
+          innerObj.key = 'Main';
+          innerObj.type = 'object';
+          innerObj.id = 'formData[\'' + key + '\']';
+          innerObj.validation = {Type: 'object'};
+          innerObj.value = Object.assign({}, __obj);
+        }
+
+        if (typeof obj[prop] === 'object') {
+          innerObj.key = prop;
+          innerObj.value = obj[prop];
+          innerObj.type = this.homeService.checkTypeof(obj[prop]);
+          innerObj.id = 'formData[\'' + key + '\'][\'' + prop + '\']';
+          innerObj.validation = this.homeService.checkTypeByValidation(innerObj.id, innerObj.type);
+        }
+        if (innerObj.id !== '') {
+          arr.push(innerObj);
+        }
+
+      }
+    }
+    console.log(arr);
+    this.newJsonData = arr;
+  }
